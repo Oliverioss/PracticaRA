@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.XR.ARFoundation;
-using UnityEngine.UI; // Para trabajar con el Toggle
+using UnityEngine.UI; 
 
 public class Game : MonoBehaviour
 {
@@ -76,6 +76,8 @@ public class Game : MonoBehaviour
             {
                 gameStarted = false;
                 winText.gameObject.SetActive(true);
+                startButton.SetActive(false);
+                backButton.gameObject.SetActive(true);
             }
 
             if (currentTime > 0)
@@ -94,7 +96,7 @@ public class Game : MonoBehaviour
     {
         gameStarted = true;
         currentTime = PlaneManager2.Instance.maxTime;
-        startButton.SetActive(false);
+        startButton.SetActive(false); 
         contadorGemas = 0;
         ClearCubes();
         SpawnCubes();
@@ -103,15 +105,20 @@ public class Game : MonoBehaviour
 
     void SpawnCubes()
     {
-        ClearCubes();
-        int gemCount = Mathf.Min(planeManager.trackables.count, PlaneManager2.Instance.maxHorizontal + PlaneManager2.Instance.maxVertical);
+        ClearCubes(); 
+
+        int gemCount = PlaneManager2.Instance.maxHorizontal + PlaneManager2.Instance.maxVertical; 
+        int gemasGeneradas = 0; 
 
         foreach (var plane in planeManager.trackables)
         {
-            Vector3 pos = plane.transform.position + Vector3.up * 0.05f;  
+            if (gemasGeneradas >= gemCount)
+            {
+                break;
+            }
+            Vector3 pos = plane.transform.position + Vector3.up * 0.05f; 
             SpawnCube(pos);
-
-            gemCount--;
+            gemasGeneradas++; 
         }
     }
 
@@ -136,6 +143,7 @@ public class Game : MonoBehaviour
     public void RecogerGema()
     {
         contadorGemas++;
+        AudioManager.Instance.PlayGemSound();
     }
     public void GoBackToMenu()
     {

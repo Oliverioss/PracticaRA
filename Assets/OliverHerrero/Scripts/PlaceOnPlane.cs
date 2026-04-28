@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.XR.ARSubsystems;
 
@@ -68,8 +69,6 @@ namespace UnityEngine.XR.ARFoundation.Samples
 
             if (m_RaycastManager.Raycast(touchPosition, s_Hits, TrackableType.PlaneWithinPolygon))
             {
-                // Raycast hits are sorted by distance, so the first one
-                // will be the closest hit.
                 var hitPose = s_Hits[0].pose;
 
                 if (spawnedObject == null)
@@ -114,6 +113,17 @@ namespace UnityEngine.XR.ARFoundation.Samples
                 Destroy(spawnedObject);
                 spawnedObject = null;
             }
+        }
+
+        public void ReturnToScene()
+        {
+            ARSession arSession = FindFirstObjectByType<ARSession>();
+            if (arSession != null)
+            {
+                arSession.Reset();  
+            }
+
+            SceneManager.LoadScene("EscenaMenu");
         }
 
         protected override void OnPress(Vector3 position) => m_Pressed = true;

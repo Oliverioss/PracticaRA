@@ -10,7 +10,6 @@ public class PlaneManager : MonoBehaviour
 
     void Update()
     {
-        // Cuenta los planos activos actualmente
         int totalPlanos = planeManager.trackables.count;
         planeText.text = totalPlanos.ToString();
     }

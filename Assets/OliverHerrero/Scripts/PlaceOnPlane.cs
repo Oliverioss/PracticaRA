@@ -69,8 +69,6 @@ namespace UnityEngine.XR.ARFoundation.Samples
 
             if (m_RaycastManager.Raycast(touchPosition, s_Hits, TrackableType.PlaneWithinPolygon))
             {
-                // Raycast hits are sorted by distance, so the first one
-                // will be the closest hit.
                 var hitPose = s_Hits[0].pose;
 
                 if (spawnedObject == null)
@@ -125,7 +123,6 @@ namespace UnityEngine.XR.ARFoundation.Samples
                 arSession.Reset();  
             }
 
-            // Cambia a la escena de menú
             SceneManager.LoadScene("EscenaMenu");
         }
 

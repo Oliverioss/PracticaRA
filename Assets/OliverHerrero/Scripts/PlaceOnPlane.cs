@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.XR.ARSubsystems;
 
@@ -114,6 +115,18 @@ namespace UnityEngine.XR.ARFoundation.Samples
                 Destroy(spawnedObject);
                 spawnedObject = null;
             }
+        }
+
+        public void ReturnToScene()
+        {
+            ARSession arSession = FindFirstObjectByType<ARSession>();
+            if (arSession != null)
+            {
+                arSession.Reset();  
+            }
+
+            // Cambia a la escena de menú
+            SceneManager.LoadScene("EscenaMenu");
         }
 
         protected override void OnPress(Vector3 position) => m_Pressed = true;

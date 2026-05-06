@@ -26,5 +26,9 @@ public class ArrowManager : MonoBehaviour
    public void ActivarPrimeraFlecha()
    {
         arrowList[0].SetActive(true);
+        foreach (GameObject obj in arrowList)
+        {
+            obj.transform.parent = null;
+        }
    }
 }

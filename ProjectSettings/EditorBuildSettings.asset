@@ -6,17 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/OliverHerrero/Scenes/EscenaMenu.unity
-    guid: b1021a2cd8bbe3541be1a70fb1b29931
-  - enabled: 1
-    path: Assets/OliverHerrero/Scenes/EscenaPlanos.unity
-    guid: 72ed58b3f54c9074c996437ce512b41c
-  - enabled: 1
-    path: Assets/OliverHerrero/Scenes/EscenaImagen.unity
-    guid: 69694e8c7d5def640813be10a572d447
-  - enabled: 0
     path: Assets/OliverHerrero4/a.unity
     guid: d0f3fa5e12d02764ca18eee580ee2f49
+  - enabled: 0
+    path: Assets/OliverHerrero/Scenes/EscenaMenu.unity
+    guid: b1021a2cd8bbe3541be1a70fb1b29931
+  - enabled: 0
+    path: Assets/OliverHerrero/Scenes/EscenaPlanos.unity
+    guid: 72ed58b3f54c9074c996437ce512b41c
+  - enabled: 0
+    path: Assets/OliverHerrero/Scenes/EscenaImagen.unity
+    guid: 69694e8c7d5def640813be10a572d447
   - enabled: 0
     path: Assets/OliverHerrero3/Scenes/MenuOpciones.unity
     guid: feaa6f0df980a304aad3f6c841fc9ac5

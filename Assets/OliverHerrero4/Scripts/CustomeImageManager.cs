@@ -35,7 +35,6 @@ public class CustomImageManager : MonoBehaviour
         // 1. Imágenes recién detectadas
         foreach (ARTrackedImage trackedImage in eventArgs.added)
         {
-            ArrowManager.Instance.ActivarPrimeraFlecha();
             Debug.Log($"[AR] Imagen AÑADIDA: '{trackedImage.referenceImage.name}'");
         // Aquí puedes inicializar el estado del modelo 3D
 }
@@ -46,6 +45,7 @@ public class CustomImageManager : MonoBehaviour
             {
                 // La cámara ve la imagen claramente
                 Debug.Log($"[AR] Imagen '{trackedImage.referenceImage.name}'     TRACKING.");
+                ArrowManager.Instance.ActivarPrimeraFlecha();
             }
             else
             {
